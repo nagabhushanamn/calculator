@@ -7,17 +7,18 @@ pipeline {
             }
           }
         stage("Compile") {
-        		def project = 'web-calculator'
 		    steps {
-                //echo "./${project}"
-		        sh "./${project}/gradlew clean compileJava"
+                script{
+                    def project = 'web-calculator'
+                    sh "./${project}/gradlew clean compileJava"
+                }
 		    }
 		}
 		stage("Unit test") {
-			def project = 'web-calculator'
-		    steps {
-		        sh "./${project}./gradlew test"
-		    }
+			script{
+                    def project = 'web-calculator'
+                    sh "./${project}/gradlew test"
+                }
 		}
      }
 }
