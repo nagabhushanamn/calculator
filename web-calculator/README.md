@@ -5,11 +5,7 @@
 
 	sudo yum install java-1.8.0-openjdk.x86_64
     java -version
-    
-# Switch to specific java-version ( if multiple java versions installed )
-   
     sudo update-alternatives --config java
-
 
 # Install Jenkins
 
@@ -19,6 +15,33 @@
 	
 	sudo service jenkins start/stop/restart
 	sudo chkconfig jenkins on
+	
+# 	Jenkins hello world
+
+Click on New Item.
+Enter hello world as the item name, choose Pipeline, and click on OK.
+There are a lot of options. We will skip them for now and go directly to the Pipeline section.
+There, in the Script textbox, we can enter the pipeline script:
+
+	
+	pipeline {
+       agent any
+       stages {
+        stage("Hello") {
+         steps {
+              echo 'Hello World'
+         }
+        }
+       }
+	  }
+	  
+	  
+# Jenkins architecture
+
+	  
+	  
+
+
 
 
 
