@@ -101,17 +101,34 @@ pipeline {
             }
         }
         
+        // a. Method 1 – Jenkins-first acceptance testing
+
+        // stage("Acceptance test") {
+        //    steps { 
+        //     script{
+        //             def project = 'web-calculator'
+        //             dir(project){
+        //                 sleep 10
+        //                 sh 'chmod +x acceptance_test.sh'
+        //                 sh "./acceptance_test.sh"
+        //             }
+        //         }
+        //    }
+        // }
+
+        // Method 2 – Docker-first acceptance testing
+
         stage("Acceptance test") {
-           steps { 
-            script{
+            steps {
+                script{
                     def project = 'web-calculator'
                     dir(project){
-                        sleep 10
-                        sh 'chmod +x acceptance_test.sh'
-                        sh "./acceptance_test.sh"
+                        sh "docker-compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml build test"
+                        sh "docker-compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml -p acceptance up -d"
+                        sh 'test $(docker wait acceptance_test_1) -eq 0'
                     }
                 }
-           }
+            }
         }
 
      }  
@@ -123,10 +140,12 @@ pipeline {
             //body: "Your build completed, please check: ${env.BUILD_URL}"
             
             //sh "docker stop calculator"
+            
              script{
                     def project = 'web-calculator'
                     dir(project){
-            				sh "/usr/local/bin/docker-compose down"
+            				//sh "/usr/local/bin/docker-compose down"
+                         sh "docker-compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml -p acceptance down"
            			}
             }
         }
