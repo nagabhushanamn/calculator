@@ -10,7 +10,7 @@ pipeline {
 		    steps {
                 script{
                     def project = 'web-calculator'
-                    sh "./${project}/gradlew clean compileJava"
+                    sh "./${project}/gradlew compileJava"
                 }
 		    }
 		}
