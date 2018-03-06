@@ -28,8 +28,13 @@ pipeline {
 		}
 		stage("Code coverage") {
 		     steps {
-		          sh "./gradlew jacocoTestReport"
-		          sh "./gradlew jacocoTestCoverageVerification"
+		      script{
+                    def project = 'web-calculator'
+                    dir(project){
+				         sh "./gradlew jacocoTestReport"
+				         sh "./gradlew jacocoTestCoverageVerification"
+				    }
+		         }
 		     }
 		}
      }
