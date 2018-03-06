@@ -17,19 +17,13 @@
 	sudo chkconfig jenkins on
 	
 # 	Jenkins hello world
-
-Click on New Item.
-Enter hello world as the item name, choose Pipeline, and click on OK.
-There are a lot of options. We will skip them for now and go directly to the Pipeline section.
-There, in the Script textbox, we can enter the pipeline script:
-
 	
 	pipeline {
        agent any
        stages {
         stage("Hello") {
          steps {
-              echo 'Hello World'
+           echo 'Hello World'
          }
         }
        }
@@ -38,6 +32,10 @@ There, in the Script textbox, we can enter the pipeline script:
 	  
 # Jenkins architecture
 
+
+
+
+	
 	  
 	  
 
