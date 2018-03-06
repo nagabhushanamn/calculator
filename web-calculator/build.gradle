@@ -26,7 +26,6 @@ repositories {
 
 
 dependencies {
-	runtime files(org.gradle.internal.jvm.Jvm.current().toolsJar)
 	compile('org.springframework.boot:spring-boot-starter-data-redis')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
