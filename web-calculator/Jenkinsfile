@@ -80,14 +80,10 @@ pipeline {
         }
         stage("Docker Push") {
             steps {
-                script{
-                    def project = 'web-calculator'
-                    dir(project){
-                        sh "docker push localhost:5000/calculator"
-                    }
-                }
+                sh "docker push localhost:5000/calculator"
             }
-        }
+         }
+         
         stage("Deploy to staging") {
              steps {
                  sh "docker run -d --rm -p 8765:8080 --name calculator localhost:5000/calculator"
@@ -99,7 +95,7 @@ pipeline {
             script{
                     def project = 'web-calculator'
                     dir(project){
-                        sleep 10
+                        //sleep 10
                         sh 'chmod +x acceptance_test.sh'
                         sh "./acceptance_test.sh"
                     }
