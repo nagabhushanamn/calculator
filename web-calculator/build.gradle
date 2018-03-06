@@ -24,6 +24,16 @@ repositories {
 	mavenCentral()
 }
 
+jacocoTestCoverageVerification {
+     violationRules {
+          rule {
+               limit {
+                    minimum = 0.2
+               }
+          }
+     }
+}
+
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-redis')
