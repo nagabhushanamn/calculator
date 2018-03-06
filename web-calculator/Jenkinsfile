@@ -123,8 +123,8 @@ pipeline {
                 script{
                     def project = 'web-calculator'
                     dir(project){
-                        sh "docker-compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml build test"
-                        sh "docker-compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml -p acceptance up -d"
+                        sh "/usr/local/bin/docker-compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml build test"
+                        sh "/usr/local/bin/docker-compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml -p acceptance up -d"
                         sh 'test $(docker wait acceptance_test_1) -eq 0'
                     }
                 }
@@ -145,7 +145,7 @@ pipeline {
                     def project = 'web-calculator'
                     dir(project){
             				//sh "/usr/local/bin/docker-compose down"
-                         sh "docker-compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml -p acceptance down"
+                         sh "/usr/local/bin/docker-compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml -p acceptance down"
            			}
             }
         }
