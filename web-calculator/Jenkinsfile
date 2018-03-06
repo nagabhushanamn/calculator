@@ -27,15 +27,26 @@ pipeline {
 			}
 		}
 		stage("Code coverage") {
-		     steps {
-		      script{
+		    steps {
+		       script{
                     def project = 'web-calculator'
                     dir(project){
-				         sh "./gradlew jacocoTestReport"
-				         sh "./gradlew jacocoTestCoverageVerification"
+				        sh "./gradlew jacocoTestReport"
+				        sh "./gradlew jacocoTestCoverageVerification"
 				    }
 		         }
 		     }
 		}
+        stage("Code coverage") {
+            steps {
+                sh "./gradlew jacocoTestReport"
+                publishHTML (target: [
+                    reportDir: 'build/reports/jacoco/test/html',
+                    reportFiles: 'index.html',
+                    reportName: "JaCoCo Report"
+                ])
+                sh "./gradlew jacocoTestCoverageVerification"
+            }
+        }
      }
 }
