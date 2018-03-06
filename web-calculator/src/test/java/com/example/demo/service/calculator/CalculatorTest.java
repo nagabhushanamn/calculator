@@ -6,6 +6,11 @@ import org.junit.Test;
 
 import com.example.demo.service.Calculator;
 
+/**
+ * 
+ * @author nag-devops
+ *
+ */
 public class CalculatorTest {
 	private Calculator calculator = new Calculator();
 	@Test
