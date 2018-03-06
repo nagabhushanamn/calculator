@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.service.Calculator;
 
+/**
+ * 
+ * @author nag-devops
+ *
+ */
 @RestController
 class CalculatorController {
 	@Autowired

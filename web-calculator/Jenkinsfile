@@ -42,6 +42,15 @@ pipeline {
 		         }
 		     }
 		}
-        
+        stage("Static code analysis") {
+            steps {
+                script{
+                    def project = 'web-calculator'
+                    dir(project){
+                         sh "./gradlew checkstyleMain"
+                    }
+                 }
+            }     
+        }
      }
 }
