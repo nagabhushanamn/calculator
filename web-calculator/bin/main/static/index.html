@@ -9,28 +9,29 @@
 	<div class="container">
 		<div class="page-header">super calculator</div>
 		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
-			<div class="well">
-			<form action="arith" id="arith-form">
-				<div class="form-group">
-					<input class="form-control" placeholder="First Number" name="n1" id="n1">
+			<div class="col-xs-6 col-sm-4 col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">web calculator</div>
+					<div class="panel-body">
+						<form action="arith" id="arith-form" class="">
+							<div class="form-group">
+								<input class="form-control input-lg" placeholder="First Number" name="n1" id="n1">
+							</div>
+							<div class="form-group">
+								<select class="form-control" name="action" id="action">
+									<option selected="selected" value="add">+</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input class="form-control input-lg" placeholder="Second Number" name="n2" id="n2">
+							</div>
+							<button class="btn btn-primary">submit</button>
+							<hr/>
+							<span id="arith-result" class="badge">0.0</span>
+						</form>
+					</div>
 				</div>
-				<div class="form-group">
-					<select class="form-control" name="action" id="action">
-						<option value="#">select action</option>
-						<option value="add">+</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<input class="form-control" placeholder="Second Number" name="n2" id="n2">
-				</div>
-				<button class="btn btn-primary">submit</button>
-			</form>
-			<hr/>
-			<div class="alert alert-danger">
-				Result : <span id="arith-result" class="badge">0.0</span>
-			</div>
-			</div>
+				<hr />
 			</div>
 		</div>
 	</div>
