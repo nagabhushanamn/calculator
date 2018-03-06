@@ -58,27 +58,33 @@ pipeline {
             }     
         }
         stage("Package") {
-            script{
-                def project = 'web-calculator'
-                dir(project){
-                    sh "./gradlew build"
+            steps {
+                script{
+                    def project = 'web-calculator'
+                    dir(project){
+                        sh "./gradlew build"
+                    }
                 }
             }
         }
 
         stage("Docker Build") {
-            script{
-                def project = 'web-calculator'
-                dir(project){
-                    sh "docker build -t localhost:5000/calculator ."
+            steps {
+                script{
+                    def project = 'web-calculator'
+                    dir(project){
+                        sh "docker build -t localhost:5000/calculator ."
+                    }
                 }
             }
         }
         stage("Docker Push") {
-            script{
-                def project = 'web-calculator'
-                dir(project){
-                    sh "docker push localhost:5000/calculator"
+            steps {
+                script{
+                    def project = 'web-calculator'
+                    dir(project){
+                        sh "docker push localhost:5000/calculator"
+                    }
                 }
             }
         }
@@ -88,13 +94,15 @@ pipeline {
             }
         }
         stage("Acceptance test") {
-           script{
-                def project = 'web-calculator'
-                dir(project){
-                     sleep 60
-                     sh "./acceptance_test.sh"
+           steps { 
+            script{
+                    def project = 'web-calculator'
+                    dir(project){
+                        sleep 60
+                        sh "./acceptance_test.sh"
+                    }
                 }
-            }
+           }
         }
 
      }  
