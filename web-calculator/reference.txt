@@ -7,6 +7,8 @@
     java -version
     sudo update-alternatives --config java
 
+-------------------------------------------------------------------------------------------------
+
 # Install Jenkins
 
 	sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
@@ -15,6 +17,15 @@
 	
 	sudo service jenkins start/stop/restart
 	sudo chkconfig jenkins on
+	
+
+-------------------------------------------------------------------------------------------------
+	 
+	 
+	
+	
+	
+	
 	
 
 
