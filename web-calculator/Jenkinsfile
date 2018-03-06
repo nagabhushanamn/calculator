@@ -92,7 +92,12 @@ pipeline {
 
         stage("Deploy to staging") {
             steps {
-                sh "/usr/local/bin/docker-compose up -d"
+                script{
+                    def project = 'web-calculator'
+                    dir(project){
+                        sh "/usr/local/bin/docker-compose up -d"
+                    }
+                }
             }
         }
         
