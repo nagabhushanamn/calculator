@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">super calculator</div>
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="well">
+			<form action="arith" id="arith-form">
+				<div class="form-group">
+					<input class="form-control" placeholder="First Number" name="n1" id="n1">
+				</div>
+				<div class="form-group">
+					<select class="form-control" name="action" id="action">
+						<option value="#">select action</option>
+						<option value="add">+</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<input class="form-control" placeholder="Second Number" name="n2" id="n2">
+				</div>
+				<button class="btn btn-primary">submit</button>
+			</form>
+			<hr/>
+			<div class="alert alert-danger">
+				Result : <span id="arith-result" class="badge">0.0</span>
+			</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/lib/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="js/calc-app.js"></script>
+</body>
+</html>
