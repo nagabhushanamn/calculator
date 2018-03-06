@@ -123,7 +123,12 @@ pipeline {
             //body: "Your build completed, please check: ${env.BUILD_URL}"
             
             //sh "docker stop calculator"
-            sh "/usr/local/bin/docker-compose down"
+             script{
+                    def project = 'web-calculator'
+                    dir(project){
+            				sh "/usr/local/bin/docker-compose down"
+           			}
+            }
         }
     }
 }
