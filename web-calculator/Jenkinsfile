@@ -3,19 +3,19 @@
 pipeline {
      agent any
      stages {
-          stage("Checkout") {
-               steps {
-                    git url: 'https://github.com/nagabhushanamn/calculator.git'
+        	 stage("Checkout") {
+              steps {
+                 git url: 'https://github.com/nagabhushanamn/calculator.git'
                }
           }
           stage("Compile") {
 		     steps {
-		          sh "./gradlew clean compileJava"
+		         sh "./gradlew clean compileJava"
 		     }
 		}
 		stage("Unit test") {
 		     steps {
-		          sh "./gradlew test"
+		         sh "./gradlew test"
 		     }
 		}
      }
