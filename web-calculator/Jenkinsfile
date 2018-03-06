@@ -10,7 +10,9 @@ pipeline {
 		    steps {
                 script{
                     def project = 'web-calculator'
-                    sh "./${project}/gradlew compileJava"
+                    dir(project){
+                    		sh "./gradlew compileJava"    
+                    }
                 }
 		    }
 		}
@@ -18,7 +20,9 @@ pipeline {
 			steps{
 			    script{
                     def project = 'web-calculator'
-                    sh "./${project}/gradlew test"
+                    dir(project){
+                    		sh "./gradlew test"    
+                    }
                 }
 			}
 		}
