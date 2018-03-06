@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 
  * @author nag-devops
  *
+ * this is my demo calculator
+ *
  */
 @SpringBootApplication
 public class WebCalculatorApplication {
