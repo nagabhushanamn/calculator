@@ -109,7 +109,7 @@ pipeline {
                     def project = 'web-calculator'
                     dir(project){
                         sleep 10
-                        sh 'chmod +x ./acceptance_test.sh'
+                        sh 'chmod +x acceptance_test.sh'
                         sh "./acceptance_test.sh"
                     }
                 }
